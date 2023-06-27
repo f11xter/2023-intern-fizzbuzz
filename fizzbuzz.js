@@ -1,16 +1,17 @@
 // This is our main function
 function fizzbuzz() {
     for (let i = 1; i <= 100; i++) {
-        let out = "";
-        if (i % 3 === 0) out += "Fizz";
-        if (i % 13 === 0) out += "Fezz";
-        if (i % 5 === 0) out += "Buzz";
-        if (i % 7 === 0) out += "Bang";
+        let out = [];
+        if (i % 3 === 0) out.push("Fizz");
+        if (i % 13 === 0) out.push("Fezz");
+        if (i % 5 === 0) out.push("Buzz");
+        if (i % 7 === 0) out.push("Bang");
         if (i % 11 === 0) {
-            out = "Bong";
-            if (i % 13 === 0) out = "Fezz" + out;
+            if (i % 13 === 0) out = ["Fezz", "Bong"];
+            else out = ["Bong"];
         }
-        console.log(out === "" ? i : out);
+        if (i % 17 === 0) out.reverse();
+        console.log(out.length === 0 ? i : out.join(''));
     }
 }
 
