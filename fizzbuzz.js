@@ -1,6 +1,10 @@
+const prompt = require("prompt-sync")();
+
 // This is our main function
 function fizzbuzz() {
-    for (let i = 1; i <= 100; i++) {
+    const max = prompt("Enter number: ");
+
+    for (let i = 1; i <= max; i++) {
         let out = [];
         if (i % 3 === 0) out.push("Fizz");
         if (i % 13 === 0) out.push("Fezz");
