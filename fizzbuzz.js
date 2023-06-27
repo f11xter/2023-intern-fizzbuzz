@@ -60,5 +60,28 @@ function fizzbuzzcustom(max, rules) {
 }
 
 // Now, we run the main function:
-fizzbuzz();
+// fizzbuzz();
 
+fizzbuzzcustom(255, [
+    [3, {"push": () => "Fizz"}],
+    [5, {"push": (i) => i * 10, "reverse": true}],
+    [11, {
+        "replace": (i) => {
+            if (i % 13 === 0) return "FezzBong"
+            return "Bong"
+        }
+    }],
+    [17, {"reverse": true}],
+    [7, {
+        "custom": (i, out) => {
+            if (out.length !== 0) {
+                out[0] = `hi I'm ${i} `;
+            }
+        }
+    }],
+    [9, {
+        "custom": (i, out) => {
+            out.unshift("Bob");
+        }
+    }]
+]);
