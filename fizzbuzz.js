@@ -31,6 +31,34 @@ function fizzbuzz() {
     }
 }
 
+function fizzbuzzcustom(max, rules) {
+    for (let i = 1; i <= max; i++) {
+        let out = [];
+
+        for (const [num, actions] of rules) {
+            if (i % num === 0) {
+                if (Object.keys(actions).includes("push")) {
+                    out.push(actions["push"](i));
+                }
+
+                if (Object.keys(actions).includes("replace")) {
+                    out = [actions["replace"](i)];
+                }
+
+                if (Object.keys(actions).includes("reverse") && actions["reverse"]) {
+                    out.reverse();
+                }
+
+                if (Object.keys(actions).includes("custom")) {
+                    actions["custom"](i, out);
+                }
+            }
+        }
+
+        console.log(out.length === 0 ? i : out.join(''));
+    }
+}
+
 // Now, we run the main function:
 fizzbuzz();
 
